@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Multi-Task Continual Learning in Robotics for Cooking</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-3 publication-title">Multi-Task Continual Learning in Robotics for Cooking</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/parrotlun" target="_blank">Yu-Lun Liu</a></span>
+            
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">Arizona State University<br>
+                      <span class="is-size-6">
+                        A Thesis Presented in Partial Fulfillment
+                        of the Requirements for the Degree
+                        Master Science of Computer Science
+                      </span></span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            This thesis analyzes robotic manipulation in kitchen environments, focusing on imitation learning (IL) using Action Chunking with Transformers (ACT) and continual learning via ACT integrated with Low-Rank Adaptation (LoRA). The ACT framework is evaluated on 15 distinct kitchen tasks, focusing on single-arm operations such as Deformable Object Handling, Precision Grasping and Alignment, Force and Motion Control, and Dynamic Manipulation. Collected 20 human demonstrations for each of the 15 kitchen manipulation tasks. For generalization evaluation, 50 demonstrations were collected in three positional variations. In total, 450 demonstrations were collected in this thesis. Experimental results reflect the capabilities of ACT and identify limitations, including challenges with non-Markovian behavior, millimeter-level precision, task-specific generalization, and complex physical interactions. Potential future directions involve addressing these limitations and exploring efficient techniques for managing non-Markovian behavior in imitation learning.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Environments</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item has-text-centered">
+        <!-- Your image here -->
+        <img src="static/images/kitchen env.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Kitchen Environments & Tools
+        </h2>
+      </div>
+      <div class="item has-text-centered">
+        <!-- Your image here -->
+        <img src="static/images/camera.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Camera Settings
+        </h2>
+      </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+<!-- Task Performance Table Section -->
+<section class="section">
+  <div class="container">
+    <h2 class="title is-3">Demonstrations Details</h2>
+    <table class="table is-striped is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Demo</th>
+          <th>Duration (s)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>place_tissue_on_the_plate</td>
+          <td>20</td>
+          <td>16.27</td>
+        </tr>
+        <tr>
+          <td>press_the_pump_for_soy_sauce</td>
+          <td>20</td>
+          <td>23.35</td>
+        </tr>
+        <tr>
+          <td>pull_out_a_tissue</td>
+          <td>20</td>
+          <td>23.82</td>
+        </tr>
+        <tr>
+          <td>pick_up_the_bottle_cap</td>
+          <td>20</td>
+          <td>25.87</td>
+        </tr>
+        <tr>
+          <td>pick_up_the_container_lid</td>
+          <td>20</td>
+          <td>25.93</td>
+        </tr>
+        <tr>
+          <td>close_the_microwave_door</td>
+          <td>20</td>
+          <td>27.06</td>
+        </tr>
+        <tr>
+          <td>put_the_container_lid_back</td>
+          <td>20</td>
+          <td>30.92</td>
+        </tr>
+        <tr>
+          <td>put_the_bottle_cap_back</td>
+          <td>20</td>
+          <td>35.21</td>
+        </tr>
+        <tr>
+          <td>cut_sausage</td>
+          <td>20</td>
+          <td>39.26</td>
+        </tr>
+        <tr>
+          <td>open_the_microwave_door</td>
+          <td>20</td>
+          <td>40.26</td>
+        </tr>
+        <tr>
+          <td>place_a_spoon_on_the_plate</td>
+          <td>20</td>
+          <td>41.86</td>
+        </tr>
+        <tr>
+          <td>scoop_seasoning_with_a_spoon</td>
+          <td>20</td>
+          <td>47.74</td>
+        </tr>
+        <tr>
+          <td>pick_up_the_sausage_from_the_container</td>
+          <td>20</td>
+          <td>54.94</td>
+        </tr>
+        <tr>
+          <td>pour_strawberries_into_the_bowl</td>
+          <td>20</td>
+          <td>55.40</td>
+        </tr>
+        <tr>
+          <td>pour_olive_oil_onto_the_potato_dish</td>
+          <td>20</td>
+          <td>58.5</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Demonstration Table Section -->
+<section class="section">
+  <div class="container">
+    <h2 class="title is-3">Policy Rollout Results</h2>
+    <table class="table is-striped is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th>Task Name</th>
+          <th>Sub-task 1</th>
+          <th>Success Rate 1</th>
+          <th>Sub-task 2</th>
+          <th>Success Rate 2</th>
+          <th>Overall Rate</th>
+          <th>Steps</th>
+          <th>Video</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pull Out A Tissue</td>
+          <td>reach</td>
+          <td>10/10</td>
+          <td>pull</td>
+          <td>10/10</td>
+          <td>10/10</td>
+          <td>185.6</td>
+          <td><a href="#videoTask1">View Video</a></td>
+        </tr>
+        <tr>
+          <td>Place Tissue On The Plate</td>
+          <td>reach</td>
+          <td>10/10</td>
+          <td>drop</td>
+          <td>10/10</td>
+          <td>10/10</td>
+          <td>130.2857143</td>
+          <td><a href="#videoTask2">View Video</a></td>
+        </tr>
+        <tr>
+          <td>Press The Pump For Soy Sauce</td>
+          <td>reach</td>
+          <td>10/10</td>
+          <td>press</td>
+          <td>10/10</td>
+          <td>10/10</td>
+          <td>198.6666667</td>
+          <td><a href="#videoTask3">View Video</a></td>
+        </tr>
+        <tr>
+          <td>Pick Up The Container Lid</td>
+          <td>reach</td>
+          <td>9/10</td>
+          <td>pick</td>
+          <td>9/10</td>
+          <td>9/10</td>
+          <td>238.6</td>
+          <td><a href="#videoTask4">View Video</a></td>
+        </tr>
+        <tr>
+          <td>Pick Up The Bottle Cap</td>
+          <td>reach</td>
+          <td>8/10</td>
+          <td>pick</td>
+          <td>8/10</td>
+          <td>8/10</td>
+          <td>223.3333333</td>
+          <td><a href="#videoTask5">View Video</a></td>
+        </tr>
+        <tr>
+          <td>Put The Container Lid Back</td>
+          <td>reach</td>
+          <td>10/10</td>
+          <td>put</td>
+          <td>10/10</td>
+          <td>10/10</td>
+          <td>315</td>
+          <td><a href="#videoTask6">View Video</a></td>
+        </tr>
+        <tr>
+          <td>Put The Bottle Cap Back</td>
+          <td>reach</td>
+          <td>5/10</td>
+          <td>drop</td>
+          <td>5/10</td>
+          <td>5/10</td>
+          <td>320</td>
+          <td><a href="#videoTask7">View Video</a></td>
+        </tr>
+        <tr>
+          <td>Open The Microwave Door</td>
+          <td>reach</td>
+          <td>10/10</td>
+          <td>open</td>
+          <td>10/10</td>
+          <td>10/10</td>
+          <td>346</td>
+          <td><a href="#videoTask8">View Video</a></td>
+        </tr>
+        <tr>
+          <td>Close The Microwave Door</td>
+          <td>reach</td>
+          <td>9/10</td>
+          <td>close</td>
+          <td>9/10</td>
+          <td>9/10</td>
+          <td>257.1666667</td>
+          <td><a href="#videoTask9">View Video</a></td>
+        </tr>
+        <tr>
+          <td>Cut Sausage</td>
+          <td>reach</td>
+          <td>4/10</td>
+          <td>cut</td>
+          <td>4/10</td>
+          <td>4/10</td>
+          <td>384</td>
+          <td><a href="#videoTask10">View Video</a></td>
+        </tr>
+        <tr>
+          <td>Pour Strawberries Into The Bowl</td>
+          <td>reach</td>
+          <td>8/10</td>
+          <td>pour</td>
+          <td>8/10</td>
+          <td>8/10</td>
+          <td>409.8</td>
+          <td><a href="#videoTask11">View Video</a></td>
+        </tr>
+        <tr>
+          <td>Pour Olive Oil Onto The Potato Dish</td>
+          <td>reach</td>
+          <td>0/10</td>
+          <td>pour</td>
+          <td>0/10</td>
+          <td>0/10</td>
+          <td>-</td>
+          <td><a href="#videoTask12">View Video</a></td>
+        </tr>
+        <tr>
+          <td>Pick Up The Sausage From The Container</td>
+          <td>reach</td>
+          <td>10/10</td>
+          <td>pick</td>
+          <td>10/10</td>
+          <td>10/10</td>
+          <td>277.4</td>
+          <td><a href="#videoTask13">View Video</a></td>
+        </tr>
+        <tr>
+          <td>Place A Spoon On The Plate</td>
+          <td>reach</td>
+          <td>6/10</td>
+          <td>pick</td>
+          <td>6/10</td>
+          <td>6/10</td>
+          <td>363.5</td>
+          <td><a href="#videoTask14">View Video</a></td>
+        </tr>
+        <tr>
+          <td>Scoop Seasoning With A Spoon</td>
+          <td>reach</td>
+          <td>10/10</td>
+          <td>pour</td>
+          <td>10/10</td>
+          <td>10/10</td>
+          <td>434.75</td>
+          <td><a href="#videoTask15">View Video</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Video Section for Task 1: Pull Out A Tissue -->
+<section id="videoTask1" class="section">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Pull Out A Tissue</h2>
+    <div class="carousel results-carousel" data-nav="true" data-items="2">
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task1_success.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case(Different Tissue Shape)</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task1_success2.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section for Task 2: Place Tissue On The Plate -->
+<section id="videoTask2" class="section">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Place Tissue On The Plate</h2>
+    <div class="carousel results-carousel" data-nav="true" data-items="2">
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task2_success.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task2_success.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section for Task 3: Press The Pump For Soy Sauce -->
+<section id="videoTask3" class="section">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Press The Pump For Soy Sauce</h2>
+    <div class="carousel results-carousel" data-nav="true" data-items="2">
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task3_success.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task3_success.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section for Task 4: Pick Up The Container Lid -->
+<section id="videoTask4" class="section">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Pick Up The Container Lid</h2>
+    <div class="carousel results-carousel" data-nav="true" data-items="2">
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task4_success.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Failed Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task4_fail.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section for Task 5: Pick Up The Bottle Cap -->
+<section id="videoTask5" class="section">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Pick Up The Bottle Cap</h2>
+    <div class="carousel results-carousel" data-nav="true" data-items="2">
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task5_success.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Failed Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task5_fail.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section for Task 6: Put The Container Lid Back -->
+<section id="videoTask6" class="section">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Put The Container Lid Back</h2>
+    <div class="carousel results-carousel" data-nav="true" data-items="2">
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task6_success.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task6_success2.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section for Task 7: Put The Bottle Cap Back -->
+<section id="videoTask7" class="section">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Put The Bottle Cap Back</h2>
+    <div class="carousel results-carousel" data-nav="true" data-items="2">
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task7_success.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Failed Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task7_fail.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section for Task 8: Open The Microwave Door -->
+<section id="videoTask8" class="section">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Open The Microwave Door</h2>
+    <div class="carousel results-carousel" data-nav="true" data-items="2">
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task8_success.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task8_success2.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section for Task 9: Close The Microwave Door -->
+<section id="videoTask9" class="section">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Close The Microwave Door</h2>
+    <div class="carousel results-carousel" data-nav="true" data-items="2">
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task9_success.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case(Door Angle)</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task9_success2.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Failed Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task9_fail.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section for Task 10: Cut Sausage -->
+<section id="videoTask10" class="section">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Cut Sausage</h2>
+    <div class="carousel results-carousel" data-nav="true" data-items="2">
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task10_success.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Failed Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task10_fail.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section for Task 11: Pour Strawberries Into The Bowl -->
+<section id="videoTask11" class="section">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Pour Strawberries Into The Bowl</h2>
+    <div class="carousel results-carousel" data-nav="true" data-items="2">
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task11_success.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Failed Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task11_fail.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section for Task 12: Pour Olive Oil Onto The Potato Dish -->
+<section id="videoTask12" class="section">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Pour Olive Oil Onto The Potato Dish</h2>
+    <div class="carousel results-carousel" data-nav="true" data-items="2">
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Failed Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task12_fail.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Failed Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task12_fail.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section for Task 13: Pick Up The Sausage From The Container -->
+<section id="videoTask13" class="section">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Pick Up The Sausage From The Container</h2>
+    <div class="carousel results-carousel" data-nav="true" data-items="2">
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task13_success.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case(Sausage Orientation)</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task13_success2.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section for Task 14: Place A Spoon On The Plate -->
+<section id="videoTask14" class="section">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Place A Spoon On The Plate</h2>
+    <div class="carousel results-carousel" data-nav="true" data-items="2">
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task14_success.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Failed Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task14_fail.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section for Task 15: Scoop Seasoning With A Spoon -->
+<section id="videoTask15" class="section">
+  <div class="container">
+    <h2 class="title is-4 has-text-centered">Scoop Seasoning With A Spoon</h2>
+    <div class="carousel results-carousel" data-nav="true" data-items="2">
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task15_success.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="item">
+        <h3 class="subtitle is-5 has-text-centered">Success Case</h3>
+        <video controls style="width:70%; margin:0 auto; display:block;">
+          <source src="static/videos/task15_success2.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
